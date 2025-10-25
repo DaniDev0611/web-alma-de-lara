@@ -1,0 +1,398 @@
+/* ----------------------------------- */
+/* REINICIO BÁSICO DE ESTILOS */
+/* ----------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ----------------------------------- */
+/* VARIABLES DE COLOR (Tierra y Canto) */
+/* ----------------------------------- */
+
+:root {
+    --color-principal-pastel: coral;
+    --color-principal-oscuro: orange;
+    --color-fondo-suave: lightgray;
+    --color-fondo-blanco: white;
+    --color-texto-principal: black;
+    --color-titulo-oscuro: blue;
+    --sombra-suave: 0 4px 8px rgba(0, 0, 0, 0.10);
+    --sombra-media: 0 6px 12px rgba(0, 0, 0, 0.20);
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL ENCABEZADO (HEADER) */
+/* ----------------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--color-principal-oscuro);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* ================================================= */
+/* ESTILO DE BANNER PRINCIPAL */
+/* ================================================= */
+
+.banner-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    background-image: url('../images/wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+
+/* ================================================= */
+/* ESTILOS DEL CONTENIDO (Centrado y Texto) */
+/* ================================================= */
+
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 90%;
+}
+
+.contenido h1, .contenido p {
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+    margin: 0 auto 15px auto;
+}
+
+.contenido h1 {
+    font-size: 3em;
+}
+
+.slogan-texto {
+    font-style: italic;
+    color: orange;
+    border-bottom: 1px solid orange;
+    padding-bottom: 5px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.cta-button:hover {
+    background-color: orange;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL MENÚ PRINCIPAL (NAV) */
+/* ----------------------------------- */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    background-color: coral;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL MENÚ DESPLEGABLE (DROPDOWN) */
+/* ----------------------------------- */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-fondo-blanco);
+    min-width: 160px;
+    box-shadow: var(--sombra-media);
+    z-index: 10;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: var(--color-texto-principal) !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: var(--color-fondo-blanco);
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-fondo-suave);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: coral;
+}
+
+/* ----------------------------------- */
+/* ESTILO PARA EL SLOGAN */
+/* ----------------------------------- */
+
+.hero .slogan-texto {
+    font-size: 1.25em;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--color-titulo-oscuro);
+    margin-top: -10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--color-principal-pastel);
+    padding-bottom: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL BOTÓN (CALL TO ACTION) */
+/* ----------------------------------- */
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--color-principal-pastel);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--sombra-suave);
+}
+
+.cta-button:hover {
+    background-color: cadetblue;
+    box-shadow: var(--sombra-media);
+}
+
+/* ----------------------------------- */
+/* ESTILOS GENERALES DE SECCIÓN */
+/* ----------------------------------- */
+
+.content-section {
+    padding: 80px 50px;
+    text-align: center;
+    min-height: 500px;
+    margin: 30px 0;
+    background-color: var(--color-fondo-blanco);
+    box-shadow: var(--sombra-suave);
+    border-radius: 10px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grey-background {
+    background-color: var(--color-fondo-suave);
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    color: var(--color-titulo-oscuro);
+    margin-bottom: 30px;
+}
+
+/* ----------------------------------- */
+/* ESTILOS ESPECÍFICOS DE MISIÓN Y VISIÓN */
+/* ----------------------------------- */
+
+.mision-vision-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#mision-vision h3, .mision-vision-contenido p {
+    text-align: center;
+}
+
+#mision-vision h3 {
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+#mision-vision .mision-vision-contenido h3:first-child {
+    margin-top: 0;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DE FORMULARIO DE CONTACTO */
+/* ----------------------------------- */
+
+.contact-form {
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.25);
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-principal-pastel);
+    box-shadow: 0 0 5px cadetblue;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form button[type="submit"] {
+    padding: 15px 25px;
+    background-color: var(--color-principal-pastel);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--sombra-suave);
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: cadetblue;
+    box-shadow: var(--sombra-media);
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL PIE DE PÁGINA (FOOTER) */
+/* ----------------------------------- */
+
+footer {
+    background-color: var(--color-principal-oscuro);
+    color: white;
+    padding: 30px 50px;
+    font-size: 0.85em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: lightgrey;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-principal-pastel);
+}
+
+/* ----------------------------------- */
+/* ESTILOS ADICIONALES PARA EL BODY */
+/* ----------------------------------- */
+
+body {
+    background-color: whitesmoke;
+}
+
+/* ----------------------------------- */
+/* MEDIA QUERY BÁSICO (Para que se vea bien en móviles) */
+/* ----------------------------------- */
+
+@media (max-width: 768px) {
+    header, .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero .eslogan {
+        font-size: 1.2em;
+        padding: 0 10px 10px 10px;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        padding: 5px 0;
+    }
+
+    .footer-content {
+        gap: 15px;
+    }
+
+    .content-section {
+        padding: 40px 20px;
+        margin: 15px auto;
+    }
+}

@@ -1,0 +1,571 @@
+/* ----------------------------------- */
+/* REINICIO BÁSICO DE ESTILOS */
+/* ----------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+/* ----------------------------------- */
+/* VARIABLES DE COLOR (Tierra y Canto) */
+/* ----------------------------------- */
+
+:root {
+    --color-principal-pastel: #f36f4d;
+    --color-principal-oscuro: #fa955a;
+    --color-fondo-suave: lightgray;
+    --color-fondo-blanco: white;
+    --color-texto-principal: black;
+    --color-titulo-oscuro: blue;
+    --sombra-suave: 0 4px 8px darkgray;
+    --sombra-media: 0 6px 12px darkgray;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL ENCABEZADO (HEADER) */
+/* ----------------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--color-principal-pastel);
+    color: white;
+    box-shadow: 0 2px 4px darkgray;
+}
+
+header { position: relative; z-index: 50; }
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.15);
+    width: 44px;
+    height: 36px;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* ================================================= */
+/* ESTILO DE BANNER PRINCIPAL */
+/* ================================================= */
+
+.banner-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    background-image: url('../images/wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+
+/* ================================================= */
+/* ESTILOS DEL CONTENIDO (Centrado y Texto) */
+/* ================================================= */
+
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    max-width: 90%;
+}
+
+.contenido h1, .contenido p {
+    color: white;
+    text-shadow: 1px 1px 4px darkgray;
+    margin: 0 auto 15px auto;
+}
+
+.contenido h1 {
+    font-size: 3em;
+}
+
+.slogan-texto {
+    font-style: italic;
+    color: orange;
+    border-bottom: 1px solid orange;
+    padding-bottom: 5px;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL MENÚ PRINCIPAL (NAV) */
+/* ----------------------------------- */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    background-color: coral;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL MENÚ DESPLEGABLE (DROPDOWN) */
+/* ----------------------------------- */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-fondo-blanco);
+    min-width: 160px;
+    box-shadow: var(--sombra-media);
+    z-index: 10;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: var(--color-texto-principal) !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: var(--color-fondo-blanco);
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-fondo-suave);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown.open .dropdown-content { display: block; }
+
+.dropdown:hover .dropbtn {
+    background-color: coral;
+}
+
+/* ----------------------------------- */
+/* ESTILO PARA EL SLOGAN */
+/* ----------------------------------- */
+
+.hero .slogan-texto {
+    font-size: 1.25em;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--color-titulo-oscuro);
+    margin-top: -10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--color-principal-pastel);
+    padding-bottom: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL BOTÓN (CALL TO ACTION) */
+/* ----------------------------------- */
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--color-principal-pastel);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--sombra-suave);
+}
+
+.cta-button:hover {
+    background-color: cadetblue;
+    box-shadow: var(--sombra-media);
+}
+
+/* ----------------------------------- */
+/* ESTILOS GENERALES DE SECCIÓN */
+/* ----------------------------------- */
+
+.content-section {
+    padding: 80px 50px;
+    text-align: center;
+    min-height: 500px;
+    margin: 30px 0;
+    background-color: var(--color-fondo-blanco);
+    box-shadow: var(--sombra-suave);
+    border-radius: 10px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grey-background {
+    background-color: var(--color-fondo-suave);
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    color: var(--color-titulo-oscuro);
+    margin-bottom: 30px;
+}
+
+/* ----------------------------------- */
+/* ESTILOS ESPECÍFICOS DE MISIÓN Y VISIÓN */
+/* ----------------------------------- */
+
+.mision-vision-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#mision-vision h3, .mision-vision-contenido p {
+    text-align: center;
+}
+
+#mision-vision h3 {
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+#mision-vision .mision-vision-contenido h3:first-child {
+    margin-top: 0;
+}
+
+/* ----------------------------------- */
+/* ESTILOS DEL PIE DE PÁGINA (FOOTER) */
+/* ----------------------------------- */
+
+footer {
+    background-color: var(--color-principal-oscuro);
+    color: white;
+    padding: 30px 50px;
+    font-size: 0.85em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-principal-pastel);
+}
+
+.socials {
+    display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+}
+.socials .contenedor {
+    display:flex; align-items:center; gap:8px; text-decoration:none; color:inherit;
+}
+.social-icon {
+    width:48px; height:48px; object-fit:contain; display:block;
+}
+
+.sr-only {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ----------------------------------- */
+/* ESTILOS ESPECÍFICOS DE LA GALERÍA */
+/* ----------------------------------- */
+
+#galeria {
+    position: relative;
+}
+
+.g-sub {
+	color: var(--color-texto-principal);
+	margin-bottom: 24px;
+}
+
+.galeria-grid {
+	display: flex;
+	gap: 18px;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	padding-bottom: 6px;
+	padding-left: 56px;
+	padding-right: 56px;
+	scroll-snap-type: x mandatory;
+	position: relative;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.g-item {
+	display: block;
+	overflow: visible;
+	border-radius: 12px;
+	box-shadow: var(--sombra-media);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	border: 3px solid var(--color-principal-pastel);
+	flex: 0 0 calc(33.333% - 12px);
+	scroll-snap-align: center;
+	position: relative;
+}
+
+.g-item img {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.25s ease;
+	border-radius: 12px;
+}
+
+.galeria-grid::-webkit-scrollbar {
+    height: 8px; display: none;
+}
+
+.galeria-grid {
+    -ms-overflow-style: none; scrollbar-width: none;
+}
+
+.g-item .g-prev, .g-item .g-next {
+    display: none;
+}
+
+.g-prev-global, .g-next-global {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--color-principal-pastel);
+    color: white;
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 28px;
+    box-shadow: var(--sombra-media);
+    cursor: pointer;
+    z-index: 20;
+    transition: background-color 0.25s;
+}
+
+.g-prev-global:hover, .g-next-global:hover { 
+    background-color: var(--color-principal-oscuro);
+}
+
+.g-item:hover {
+	transform: translateY(-6px) scale(1.00);
+	box-shadow: 0 24px 60px darkgray;
+}
+
+.g-prev-global {
+    left: 10px;
+}
+
+.g-next-global {
+    right: 10px;
+}
+
+/* ----------------------------------- */
+/* MEDIA QUERY */
+/* ----------------------------------- */
+
+@media (max-width: 1200px) {
+    .content-section {
+        max-width: 90%;
+    }
+    .galeria-grid {
+        max-width: 920px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .g-item {
+        flex: 0 0 calc(50% - 12px);
+    }
+    .banner-hero {
+        height: 60vh;
+    }
+    .contenido h1 {
+        font-size: 2.2em;
+    }
+    .content-section {
+        padding: 60px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 12px 18px;
+        gap: 10px;
+        text-align: center;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .nav-links li a {
+        padding: 10px 12px;
+    }
+    .banner-hero {
+        height: 55vh;
+    }
+    .contenido {
+        position: static;
+        transform: none;
+        top: auto;
+        left: auto;
+        margin: 18px auto;
+        padding: 0 18px;
+        max-width: 95%;
+        text-align: center;
+        z-index: 2;
+    }
+    .contenido h1 {
+        font-size: 1.9em;
+    }
+    .contenido p {
+        font-size: 1em;
+    }
+    .content-section {
+        padding: 40px 20px;
+        margin: 15px auto;
+        min-height: auto;
+    }
+    .cta-button {
+        padding: 12px 20px;
+    }
+    .galeria-grid {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 520px) {
+    header {
+        padding: 10px 12px;
+    }
+    .logo a {
+        font-size: 1.25em;
+    }
+    .banner-hero {
+        height: 45vh;
+    }
+    .contenido h1 {
+        font-size: 1.6em;
+    }
+    .galeria-grid {
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 12px;
+    }
+    .g-item {
+        flex: 0 0 100%;
+    }
+    .g-item img {
+        height: 200px;
+    }
+    .g-prev-global, .g-next-global {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        top: 60%;
+    }
+    .g-prev-global {
+        left: 6px;
+    }
+    .g-next-global {
+        right: 6px;
+    }
+    .footer-links a {
+        margin: 6px 8px; display: inline-block;
+    }
+}
+
+@media (max-width: 380px) {
+    .contenido h1 {
+        font-size: 1.4em;
+    }
+    .cta-button {
+        padding: 10px 14px; font-size: 0.95em;
+    }
+    .nav-links li a {
+        padding: 8px 10px;
+    }
+    .content-section {
+        padding: 24px 12px;
+    }
+}

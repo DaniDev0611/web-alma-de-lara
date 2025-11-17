@@ -11,6 +11,7 @@
 
 body {
     background-color: whitesmoke;
+    overflow-x: hidden; /* 🛠️ FIX 1: Evita el desbordamiento horizontal (movimiento lateral) */
 }
 
 /* ----------------------------------- */
@@ -364,7 +365,7 @@ footer {
 
 .g-item img {
 	width: 100%;
-	height: 250px;
+	height: auto; /* 🛠️ FIX 2: Permite que la altura se ajuste automáticamente para mantener proporciones (anteriormente 250px) */
 	object-fit: cover;
 	display: block;
 	transition: transform 0.25s ease;
@@ -452,12 +453,16 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        /* Se eliminan flex-direction y align-items para mantener logo y toggle en una fila */
+        /* 🛠️ FIX: Se elimina flex-direction: column para que el logo y el toggle sigan en línea */
+        flex-direction: row; 
+        justify-content: space-between; /* Asegura el logo a un lado y el botón al otro */
+        align-items: center;
         padding: 12px 18px;
         gap: 0;
+        text-align: center;
     }
 
-    /* Regla AÑADIDA: Posiciona el menú de navegación para que caiga por debajo del header */
+    /* 🛠️ FIX: Se posiciona la navegación de forma absoluta para que caiga por debajo del header */
     nav {
         position: absolute;
         top: 100%; 
@@ -465,36 +470,37 @@ footer {
         width: 100%;
         background-color: var(--color-principal-pastel);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 40;
+        z-index: 40; /* Debe estar por debajo del header (z-index: 50) */
     }
 
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
     .nav-links {
         flex-direction: column;
-        gap: 0;
+        gap: 0; /* Se elimina el gap para mejor control del espaciado vertical */
         width: 100%;
-        padding: 0;
     }
-
     .nav-toggle {
         display: flex;
     }
-
     .nav-links {
         display: none;
     }
-
     .nav-links.show {
         display: flex;
     }
-
     .nav-links li a {
         padding: 10px 18px;
-        text-align: left; /* Alineación a la izquierda para mejor lectura */
+        text-align: left; /* Mejora la lectura en menú vertical */
     }
 
-    /* Reglas AÑADIDAS: Ajustes para el submenú (dropdown) en móvil */
+    /* 🛠️ FIX: El submenú pasa a fluir dentro del menú móvil */
     .dropdown-content {
-        position: static; /* Fluye dentro de la lista en lugar de ser absoluto */
+        position: static;
         width: 100%;
         box-shadow: none;
         border-radius: 0;
@@ -502,15 +508,9 @@ footer {
     }
 
     .dropdown-content a {
-        padding-left: 30px !important; /* Identación para diferenciar sub-links */
+        padding-left: 30px !important; /* Identación */
     }
-    
-    /* El resto de estilos se mantiene igual: */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-    }
+
     .banner-hero {
         height: 55vh;
     }
@@ -573,7 +573,7 @@ footer {
         width: 40px;
         height: 40px;
         font-size: 18px;
-        top: 50%; /* CORREGIDO */
+        top: 50%; /* 🛠️ FIX: Centrado vertical */
     }
     .g-prev-global {
         left: 6px;

@@ -1,7 +1,3 @@
-/* ----------------------------------- */
-/* REINICIO BÁSICO DE ESTILOS */
-/* ----------------------------------- */
-
 * {
     margin: 0;
     padding: 0;
@@ -11,12 +7,8 @@
 
 body {
     background-color: whitesmoke;
-    overflow-x: hidden; /* 🛠️ FIX 1: Evita el desbordamiento horizontal (movimiento lateral) */
+    overflow-x: hidden;
 }
-
-/* ----------------------------------- */
-/* VARIABLES DE COLOR (Tierra y Canto) */
-/* ----------------------------------- */
 
 :root {
     --color-principal-pastel: #f36f4d;
@@ -28,10 +20,6 @@ body {
     --sombra-suave: 0 4px 8px darkgray;
     --sombra-media: 0 6px 12px darkgray;
 }
-
-/* ----------------------------------- */
-/* ESTILOS DEL ENCABEZADO (HEADER) */
-/* ----------------------------------- */
 
 header {
     display: flex;
@@ -66,10 +54,6 @@ header { position: relative; z-index: 50; }
     font-weight: bold;
 }
 
-/* ================================================= */
-/* ESTILO DE BANNER PRINCIPAL */
-/* ================================================= */
-
 .banner-hero {
     position: relative;
     width: 100%;
@@ -91,10 +75,6 @@ header { position: relative; z-index: 50; }
     background-color: rgba(0, 0, 0, 0.50);
     z-index: 1;
 }
-
-/* ================================================= */
-/* ESTILOS DEL CONTENIDO (Centrado y Texto) */
-/* ================================================= */
 
 .contenido {
     position: absolute;
@@ -122,10 +102,6 @@ header { position: relative; z-index: 50; }
     padding-bottom: 5px;
 }
 
-/* ----------------------------------- */
-/* ESTILOS DEL MENÚ PRINCIPAL (NAV) */
-/* ----------------------------------- */
-
 .nav-links {
     list-style: none;
     display: flex;
@@ -142,10 +118,6 @@ header { position: relative; z-index: 50; }
 .nav-links li a:hover {
     background-color: coral;
 }
-
-/* ----------------------------------- */
-/* ESTILOS DEL MENÚ DESPLEGABLE (DROPDOWN) */
-/* ----------------------------------- */
 
 .dropdown {
     position: relative;
@@ -186,10 +158,6 @@ header { position: relative; z-index: 50; }
     background-color: coral;
 }
 
-/* ----------------------------------- */
-/* ESTILO PARA EL SLOGAN */
-/* ----------------------------------- */
-
 .hero .slogan-texto {
     font-size: 1.25em;
     font-style: italic;
@@ -203,10 +171,6 @@ header { position: relative; z-index: 50; }
     margin-left: auto;
     margin-right: auto;
 }
-
-/* ----------------------------------- */
-/* ESTILOS DEL BOTÓN (CALL TO ACTION) */
-/* ----------------------------------- */
 
 .cta-button {
     display: inline-block;
@@ -228,10 +192,6 @@ header { position: relative; z-index: 50; }
     background-color: cadetblue; 
     box-shadow: var(--sombra-media);
 }
-
-/* ----------------------------------- */
-/* ESTILOS GENERALES DE SECCIÓN */
-/* ----------------------------------- */
 
 .content-section {
     padding: 80px 50px;
@@ -256,39 +216,29 @@ header { position: relative; z-index: 50; }
     margin-bottom: 30px;
 }
 
-/* ----------------------------------- */
-/* ESTILOS ESPECÍFICOS DE MISIÓN Y VISIÓN */
-/* ----------------------------------- */
-
 .mision-vision-contenido {
-    display: flex; /* Activa la disposición flexible */
-    gap: 30px; /* Espacio entre las dos tarjetas */
-    max-width: 1000px; /* Lo mismo que la sección padre */
+    display: flex; 
+    gap: 30px;
+    max-width: 1000px; 
     margin: 0 auto;
     text-align: center;
 }
 
-/* ESTILO DE CADA TARJETA */
 .mv-card {
-    flex: 1; /* Permite que cada tarjeta ocupe el mismo espacio */
+    flex: 1; 
     padding: 30px;
-    background-color: var(--color-fondo-blanco); /* Fondo blanco (destaca sobre el gris) */
+    background-color: var(--color-fondo-blanco);
     border-radius: 10px;
     box-shadow: var(--sombra-suave);
-    text-align: left; /* Alineamos el texto a la izquierda para mejor lectura */
+    text-align: left; 
 }
 
-/* Asegurar que los títulos no tengan un margen arriba/abajo excesivo */
 .mv-card h3 {
-    color: var(--color-titulo-oscuro); /* Cambia el color del título si lo deseas */
+    color: var(--color-titulo-oscuro); 
     margin-top: 0;
     margin-bottom: 15px;
     text-align: center;
 }
-
-/* ----------------------------------- */
-/* ESTILOS DEL PIE DE PÁGINA (FOOTER) */
-/* ----------------------------------- */
 
 footer {
     background-color: var(--color-principal-oscuro);
@@ -334,10 +284,6 @@ footer {
     position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-/* ----------------------------------- */
-/* ESTILOS ESPECÍFICOS DE LA GALERÍA */
-/* ----------------------------------- */
-
 #galeria {
     position: relative;
 }
@@ -372,9 +318,7 @@ footer {
 	flex: 0 0 calc(33.333% - 12px);
     scroll-snap-align: center;
     position: relative;
-    
-    /* AÑADIR/MODIFICAR ESTO */
-    height: 350px; /* Altura uniforme para todos los cuadros de la galería en PC */
+    height: 350px; 
     overflow: hidden;
 }
 
@@ -440,10 +384,6 @@ footer {
     right: 10px;
 }
 
-/* ----------------------------------- */
-/* MEDIA QUERY */
-/* ----------------------------------- */
-
 @media (max-width: 1200px) {
     .content-section {
         max-width: 90%;
@@ -452,21 +392,6 @@ footer {
         max-width: 920px;
         padding-left: 40px;
         padding-right: 40px;
-    }
-}
-
-@media (max-width: 900px) {
-    .g-item {
-        flex: 0 0 calc(50% - 12px);
-    }
-    .banner-hero {
-        height: 60vh;
-    }
-    .contenido h1 {
-        font-size: 2.2em;
-    }
-    .content-section {
-        padding: 60px 30px;
     }
 }
 
@@ -480,7 +405,21 @@ footer {
         text-align: center;
     }
 
-    
+    @media (max-width: 900px) {
+    .g-item {
+        flex: 0 0 calc(50% - 12px);
+    }
+      .banner-hero {
+        height: 60vh;
+    }
+    .contenido h1 {
+        font-size: 2.2em;
+        }
+    .content-section {
+        padding: 60px 30px;
+    }
+}
+
     nav {
         position: absolute;
         top: 100%; 
@@ -526,21 +465,11 @@ footer {
         height: 55vh;
          margin-top: -18px;
     }
-    .contenido {
-        position: static;
-        transform: none;
-        top: auto;
-        left: auto;
-        margin: 18px auto;
-        padding: 0 18px;
-        max-width: 95%;
-        text-align: center;
-        z-index: 2;
-    }
+   
     .contenido h1 {
         font-size: 1.9em;
         text-shadow: 0 0 8px black, 0 0 8px black; 
-        color: white; 
+        color: white;
     }
     
     .contenido p {
@@ -643,10 +572,6 @@ footer {
         padding: 24px 12px;
     }
 }
-
-/* ----------------------------------- */
-/* ESTILOS ESPECÍFICOS DEL MAPA */
-/* ----------------------------------- */
 
 .map-placeholder {
     position: relative;        

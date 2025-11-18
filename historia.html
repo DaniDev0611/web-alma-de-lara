@@ -7,21 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-     <header>
+    <header>
         <div class="logo">
             <a href="#inicio">Fundación Alma de Lara</a>
         </div>
-        <nav>
+        <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" data-target="#main-nav" aria-label="Abrir menú">☰</button>
+        <nav id="main-nav" aria-label="Principal">
             <ul class="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li class="dropdown">
+                    <a href="#" class="dropbtn">Información ▼</a>
                     <div class="dropdown-content">
                          <a href="manual.html" target="_blank" rel="noopener noreferrer">Manual de Usuario</a>
                         <a href="index.html#quienes-somos">¿Quiénes Somos?</a>
                         <a href="historia.html">Historia</a>
                         <a href="index.html#mision-vision">Misión y Visión</a> 
                         <a href="index.html#ubicacion">Ubicación</a>
-                        <a href="#contacto">Contacto</a>
+                        <a href="contacto.html"> Contacto</a>
                     </div>
                 </li>
             </ul>

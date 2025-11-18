@@ -11,6 +11,7 @@
 
 body {
     background-color: whitesmoke;
+    overflow-x: hidden; /* 🛠️ FIX 1: Evita el desbordamiento horizontal (movimiento lateral) */
 }
 
 /* ----------------------------------- */
@@ -40,6 +41,22 @@ header {
     background-color: var(--color-principal-pastel);
     color: white;
     box-shadow: 0 2px 4px darkgray;
+}
+
+header { position: relative; z-index: 50; }
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.15);
+    width: 44px;
+    height: 36px;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .logo a {
@@ -105,22 +122,6 @@ header {
     padding-bottom: 5px;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: orange;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    box-shadow: 0 4px 6px darkgray;
-}
-
-.cta-button:hover {
-    background-color: orange;
-}
-
 /* ----------------------------------- */
 /* ESTILOS DEL MENÚ PRINCIPAL (NAV) */
 /* ----------------------------------- */
@@ -178,6 +179,8 @@ header {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.dropdown.open .dropdown-content { display: block; }
 
 .dropdown:hover .dropbtn {
     background-color: coral;
@@ -273,60 +276,6 @@ header {
 }
 
 /* ----------------------------------- */
-/* ESTILOS DE FORMULARIO DE CONTACTO */
-/* ----------------------------------- */
-
-.contact-form {
-    max-width: 500px;
-    padding: 10px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-    box-shadow: inset 0 1px 3px darkgray;
-    transition: box-shadow 0.25s ease;
-}
-
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
-.contact-form textarea:focus {
-    border-color: var(--color-principal-pastel);
-    box-shadow: 0 0 5px cadetblue;
-    outline: none;
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.contact-form button[type="submit"] {
-    padding: 15px 25px;
-    background-color: var(--color-principal-pastel);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: var(--sombra-suave);
-}
-
-.contact-form button[type="submit"]:hover {
-    background-color: cadetblue;
-    box-shadow: var(--sombra-media);
-}
-
-/* ----------------------------------- */
 /* ESTILOS DEL PIE DE PÁGINA (FOOTER) */
 /* ----------------------------------- */
 
@@ -358,6 +307,20 @@ footer {
 
 .footer-links a:hover {
     color: var(--color-principal-pastel);
+}
+
+.socials {
+    display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+}
+.socials .contenedor {
+    display:flex; align-items:center; gap:8px; text-decoration:none; color:inherit;
+}
+.social-icon {
+    width:48px; height:48px; object-fit:contain; display:block;
+}
+
+.sr-only {
+    position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
 /* ----------------------------------- */
@@ -402,7 +365,7 @@ footer {
 
 .g-item img {
 	width: 100%;
-	height: 250px;
+	height: auto; /* 🛠️ FIX 2: Permite que la altura se ajuste automáticamente para mantener proporciones (anteriormente 250px) */
 	object-fit: cover;
 	display: block;
 	transition: transform 0.25s ease;
@@ -414,8 +377,7 @@ footer {
 }
 
 .galeria-grid {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    -ms-overflow-style: none; scrollbar-width: none;
 }
 
 .g-item .g-prev, .g-item .g-next {
@@ -439,7 +401,7 @@ footer {
     box-shadow: var(--sombra-media);
     cursor: pointer;
     z-index: 20;
-    transition: background-color 0.2.5s;
+    transition: background-color 0.25s;
 }
 
 .g-prev-global:hover, .g-next-global:hover { 
@@ -449,10 +411,6 @@ footer {
 .g-item:hover {
 	transform: translateY(-6px) scale(1.00);
 	box-shadow: 0 24px 60px darkgray;
-}
-
-.g-item:hover img {
-    transform: scale(1.00);
 }
 
 .g-prev-global {
@@ -467,56 +425,181 @@ footer {
 /* MEDIA QUERY */
 /* ----------------------------------- */
 
-@media (max-width: 768px) {
-    header, .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero .eslogan {
-        font-size: 1.25em;
-        padding: 0 10px 10px 10px;
-    }
-    .nav-links {
-        margin-top: 10px;
-    }
-    .nav-links li {
-        padding: 5px 0;
-    }
-    .footer-content {
-        gap: 15px;
-    }
+@media (max-width: 1200px) {
     .content-section {
-        padding: 40px 20px;
-        margin: 15px auto;
+        max-width: 90%;
+    }
+    .galeria-grid {
+        max-width: 920px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }
 
 @media (max-width: 900px) {
     .g-item {
-        flex: 0 0 calc(50% - 10px);
+        flex: 0 0 calc(50% - 12px);
+    }
+    .banner-hero {
+        height: 60vh;
+    }
+    .contenido h1 {
+        font-size: 2.2em;
+    }
+    .content-section {
+        padding: 60px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        /* FIX: Mantiene logo y toggle en una fila */
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 18px;
+        gap: 0; 
+        text-align: center;
+    }
+
+    /* FIX: Posiciona la navegación para que caiga por debajo del header */
+    nav {
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: var(--color-principal-pastel);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 40;
+    }
+    
+    /* FIX CRÍTICO: Aplica el salto de línea al texto largo del footer en tabletas */
+    .footer-links a {
+        display: block; /* Debe ser block para que el texto ocupe su propia línea y rompa */
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+    
+    /* ... (resto del bloque 768px) ... */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .nav-links li a {
+        padding: 10px 18px;
+        text-align: left;
+    }
+    .banner-hero {
+        height: 55vh;
+    }
+    .contenido {
+        position: static;
+        transform: none;
+        top: auto;
+        left: auto;
+        margin: 18px auto;
+        padding: 0 18px;
+        max-width: 95%;
+        text-align: center;
+        z-index: 2;
+    }
+    .contenido h1 {
+        font-size: 1.9em;
+    }
+    .contenido p {
+        font-size: 1em;
+    }
+    .content-section {
+        padding: 40px 20px;
+        margin: 15px auto;
+        min-height: auto;
+    }
+    .cta-button {
+        padding: 12px 20px;
+    }
+    .galeria-grid {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 }
 
 @media (max-width: 520px) {
-	.galeria-grid {
-        padding-left: 10px; padding-right: 10px;
+    header {
+        padding: 10px 12px;
     }
-	.g-item {
+    .logo a {
+        font-size: 1.25em;
+    }
+    .banner-hero {
+        height: 45vh;
+    }
+    .contenido h1 {
+        font-size: 1.6em;
+    }
+    .galeria-grid {
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 12px;
+    }
+    .g-item {
         flex: 0 0 100%;
     }
     .g-item img {
-        height: 200px;
+        /* FIX: Altura automática */
+        height: auto; 
     }
     .g-prev-global, .g-next-global {
         width: 40px;
         height: 40px;
-        font-size: 20px;
-        top: 60%;
+        font-size: 18px;
+        /* FIX: Centrado vertical */
+        top: 50%; 
     }
     .g-prev-global {
-        left: 0px;
+        left: 6px;
     }
     .g-next-global {
-        right: 0px;
+        right: 6px;
+    }
+    
+    /* ✅ FIX CRÍTICO: Corrige el display (antes inline-block) y asegura el salto de línea en móvil */
+    .footer-links a {
+        margin: 6px 8px; 
+        display: block; /* Esto es esencial para que el texto largo se rompa */
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .contenido h1 {
+        font-size: 1.4em;
+    }
+    .cta-button {
+        padding: 10px 14px; font-size: 0.95em;
+    }
+    .nav-links li a {
+        padding: 8px 10px;
+    }
+    .content-section {
+        padding: 24px 12px;
     }
 }

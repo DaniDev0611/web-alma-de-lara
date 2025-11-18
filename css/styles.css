@@ -211,17 +211,21 @@ header { position: relative; z-index: 50; }
 .cta-button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: var(--color-principal-pastel);
+    background-color: var(--color-principal-pastel); 
     color: white;
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
+    margin-top: 15px; 
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: var(--sombra-suave);
+    z-index: 5; 
+    position: relative; 
 }
 
+
 .cta-button:hover {
-    background-color: cadetblue;
+    background-color: cadetblue; 
     box-shadow: var(--sombra-media);
 }
 
@@ -359,17 +363,25 @@ footer {
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
 	border: 3px solid var(--color-principal-pastel);
 	flex: 0 0 calc(33.333% - 12px);
-	scroll-snap-align: center;
-	position: relative;
+    scroll-snap-align: center;
+    position: relative;
+    
+    /* AÑADIR/MODIFICAR ESTO */
+    height: 350px; /* Altura uniforme para todos los cuadros de la galería en PC */
+    overflow: hidden;
 }
 
 .g-item img {
 	width: 100%;
-	height: auto; 
+	height: 100%; 
 	object-fit: cover;
 	display: block;
 	transition: transform 0.25s ease;
 	border-radius: 12px;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.25s ease;
+    border-radius: 12px;
 }
 
 .galeria-grid::-webkit-scrollbar {
@@ -453,7 +465,6 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        /* FIX: Mantiene logo y toggle en una fila */
         flex-direction: row; 
         justify-content: space-between;
         align-items: center;
@@ -462,7 +473,7 @@ footer {
         text-align: center;
     }
 
-    /* FIX: Posiciona la navegación para que caiga por debajo del header */
+    
     nav {
         position: absolute;
         top: 100%; 
@@ -473,15 +484,13 @@ footer {
         z-index: 40;
     }
     
-    /* FIX CRÍTICO: Aplica el salto de línea al texto largo del footer en tabletas */
     .footer-links a {
-        display: block; /* Debe ser block para que el texto ocupe su propia línea y rompa */
+        display: block; 
         word-wrap: break-word; 
         overflow-wrap: break-word;
         text-align: center;
     }
     
-    /* ... (resto del bloque 768px) ... */
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -508,6 +517,7 @@ footer {
     }
     .banner-hero {
         height: 55vh;
+         margin-top: -18px;
     }
     .contenido {
         position: static;
@@ -522,7 +532,10 @@ footer {
     }
     .contenido h1 {
         font-size: 1.9em;
+        text-shadow: 0 0 8px black, 0 0 8px black; 
+        color: white; 
     }
+    
     .contenido p {
         font-size: 1em;
     }
@@ -540,9 +553,13 @@ footer {
     }
 
     .content-section img {
-        max-width: 300px; /* Tamaño específico solo para móvil */
+        max-width: 300px; 
         margin: 0 auto;
     }
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.65); /* Lo que definimos antes */
+    }
+
 }
 
 @media (max-width: 520px) {
@@ -554,6 +571,7 @@ footer {
     }
     .banner-hero {
         height: 45vh;
+         margin-top: -18px;
     }
     .contenido h1 {
         font-size: 1.6em;
@@ -562,20 +580,23 @@ footer {
         padding-left: 10px;
         padding-right: 10px;
         gap: 12px;
+        min-height: 280px;
     }
     .g-item {
         flex: 0 0 100%;
+        height: 250px;
+        
     }
     .g-item img {
-        /* FIX: Altura automática */
-        height: auto; 
+      height: 100%; 
+        object-fit: cover;
     }
     .g-prev-global, .g-next-global {
         width: 40px;
         height: 40px;
         font-size: 18px;
-        /* FIX: Centrado vertical */
-        top: 50%; 
+        top: 50%;
+        transform: translateY(-50%);
     }
     .g-prev-global {
         left: 6px;
@@ -584,10 +605,9 @@ footer {
         right: 6px;
     }
     
-    /* ✅ FIX CRÍTICO: Corrige el display (antes inline-block) y asegura el salto de línea en móvil */
     .footer-links a {
         margin: 6px 8px; 
-        display: block; /* Esto es esencial para que el texto largo se rompa */
+        display: block; 
         word-wrap: break-word; 
         overflow-wrap: break-word;
         text-align: center;

@@ -453,16 +453,16 @@ footer {
 
 @media (max-width: 768px) {
     header {
-        /* 🛠️ FIX: Se elimina flex-direction: column para que el logo y el toggle sigan en línea */
+        /* 🛠️ FIX 3: Mantiene logo y toggle en una fila */
         flex-direction: row; 
-        justify-content: space-between; /* Asegura el logo a un lado y el botón al otro */
+        justify-content: space-between;
         align-items: center;
         padding: 12px 18px;
-        gap: 0;
+        gap: 0; 
         text-align: center;
     }
 
-    /* 🛠️ FIX: Se posiciona la navegación de forma absoluta para que caiga por debajo del header */
+    /* 🛠️ FIX 3: Posiciona la navegación de forma absoluta para que caiga por debajo del header */
     nav {
         position: absolute;
         top: 100%; 
@@ -470,7 +470,16 @@ footer {
         width: 100%;
         background-color: var(--color-principal-pastel);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 40; /* Debe estar por debajo del header (z-index: 50) */
+        z-index: 40;
+    }
+    
+    .dropdown-content {
+        position: static; /* El submenú fluye dentro del menú principal */
+        width: 100%;
+        box-shadow: none;
+    }
+    .dropdown-content a {
+        padding-left: 30px !important; 
     }
 
     .footer-content {
@@ -478,10 +487,14 @@ footer {
         text-align: center;
         gap: 12px;
     }
-    
+    .footer-links a {
+        display: block;
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+    }
     .nav-links {
         flex-direction: column;
-        gap: 0; /* Se elimina el gap para mejor control del espaciado vertical */
+        gap: 0;
         width: 100%;
     }
     .nav-toggle {
@@ -495,22 +508,8 @@ footer {
     }
     .nav-links li a {
         padding: 10px 18px;
-        text-align: left; /* Mejora la lectura en menú vertical */
+        text-align: left;
     }
-
-    /* 🛠️ FIX: El submenú pasa a fluir dentro del menú móvil */
-    .dropdown-content {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        border-radius: 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .dropdown-content a {
-        padding-left: 30px !important; /* Identación */
-    }
-
     .banner-hero {
         height: 55vh;
     }
@@ -567,13 +566,15 @@ footer {
         flex: 0 0 100%;
     }
     .g-item img {
-        height: 200px;
+        /* 🛠️ FIX 4: Altura automática (Anteriormente: height: 200px;) */
+        height: auto; 
     }
     .g-prev-global, .g-next-global {
         width: 40px;
         height: 40px;
         font-size: 18px;
-        top: 50%; /* 🛠️ FIX: Centrado vertical */
+        /* 🛠️ FIX 5: Centrado vertical (Anteriormente: top: 60%;) */
+        top: 50%; 
     }
     .g-prev-global {
         left: 6px;
